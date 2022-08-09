@@ -1,0 +1,35 @@
+
+//- for displaying user friendly “Page Not Found” message
+
+//- extends layout
+
+//- block content
+//-   div.container
+    //- h1= `404 - Page Not Found`
+    //- p.not-found-p= `Oops!  It looks like the page you're looking for does not exist.`
+
+//-     a.home(href=`/`) Home
+
+//-     if err
+
+//-       div.not-found-stack
+//-         hr
+//-         p= `The stack trace below generally wouldn't be displayed to users.  This info is more for developers.`
+//-         p= `It can be a lot to look at all at once.  But if you look closely, you can usually find some valuable info here.`
+//-         p= `Each line contains a file path and a line number. Most of these lines will likely reference source, library or framework files that you didn't write.`
+//-         p= `But if you look closely at the end of each line, you'll likely find one or more files that you created.`
+//-         p= `That file and line are usually a good place to start looking for the current bug that's causing this error.`
+//-         hr
+//-         pre #{err.stack}
+
+extends layout 
+
+block content 
+    h1= `404 - Page Not Found`
+    p.not-found-p= `Oops!  It looks like the page you're looking for does not exist.`
+    br
+    p
+        a.button(href="/books") Home
+//-   h1= Page Not Found
+//-   p= err.status
+//-   p= err.message

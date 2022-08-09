@@ -1,5 +1,8 @@
 #!/usr/bin/env node
 
+//update
+var sequelize = require("../models").sequelize;
+
 /**
  * Module dependencies.
  */
@@ -24,8 +27,11 @@ var server = http.createServer(app);
 /**
  * Listen on provided port, on all network interfaces.
  */
-
-server.listen(port);
+//updated guide to "Using SQL and Node.js with Sequelize" workshop
+// server.listen(port);
+sequelize.sync().then(function(){
+  server.listen(port);
+});
 server.on('error', onError);
 server.on('listening', onListening);
 
